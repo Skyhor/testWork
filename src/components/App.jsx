@@ -6,7 +6,7 @@ import Filter from './Filter/Filter';
 export const App = () => {
   const [contacts, setContacts] = useState(() => {
     const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-    return parsedContacts || '';
+    return parsedContacts || [];
   });
   const [filter, setFilter] = useState('');
   const addContact = userData => {
