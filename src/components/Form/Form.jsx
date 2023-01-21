@@ -1,11 +1,14 @@
 import { nanoid } from 'nanoid/non-secure';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addContacts } from '../../redux/constacts/constactsSlice';
 import s from './Form.module.css';
 const NameId = nanoid();
 const NumberId = nanoid();
-const Form = ({ onSubmit }) => {
+const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
   const AddNameInput = e => {
     const { value } = e.currentTarget;
     setName(value);
@@ -16,7 +19,8 @@ const Form = ({ onSubmit }) => {
   };
   const SubmitForm = e => {
     e.preventDefault();
-    onSubmit({ name, number });
+    const contact = { name, number, id: nanoid() };
+    dispatch(addContacts(contact));
     setName('');
     setNumber('');
   };
@@ -51,11 +55,10 @@ const Form = ({ onSubmit }) => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <button type="submit" className={s.button}>
+        <button type="submit" className={s.button} onSubmit={SubmitForm}>
           add contact
         </button>
       </form>
-      <div></div>
     </div>
   );
 };
