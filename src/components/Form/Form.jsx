@@ -55,6 +55,7 @@ const Form = ({ onSubmit }) => {
           add contact
         </button>
       </form>
+      <div></div>
     </div>
   );
 };
