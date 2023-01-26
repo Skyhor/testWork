@@ -42,25 +42,3 @@ const ContactList = () => {
 };
 
 export default ContactList;
-
-//   return (
-//     <ul>
-//       {filteredContacts.map(({ name, number, id }) => (
-//         <li key={id}>
-//           {name + ':' + number}
-//           {
-//             <button
-//               type="button"
-//               name="delete"
-//               // onClick={() => {
-//               //   dispatch(deleteContacts(id));
-//               // }}
-//             >
-//               delete
-//             </button>
-//           }
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };
