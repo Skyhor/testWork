@@ -1,25 +1,29 @@
 import React from 'react';
 import './ContactList.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/constacts/contacts-selectors';
-import { deleteContacts } from 'redux/constacts/constactsSlice';
-import { getFilter } from 'redux/filter/filter-selectors';
-
+import { selectContacts } from 'redux/constacts/contacts-selectors';
+import { selectFilter } from 'redux/filter/filter-selectors';
+import { useEffect } from 'react';
+import {
+  fetchContacts,
+  deleteContacts,
+} from 'redux/constacts/contacts-operation';
 const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
-
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const filteredContacts = contacts.filter(({ name }) =>
     name.toLowerCase().includes(filter)
   );
-
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <ul>
-      {filteredContacts.map(({ name, number, id }) => (
+      {filteredContacts.map(({ name, phone, id }) => (
         <li key={id}>
-          {name + ':' + number}
+          {name + ':' + phone}
           {
             <button
               type="button"
@@ -38,3 +42,25 @@ const ContactList = () => {
 };
 
 export default ContactList;
+
+//   return (
+//     <ul>
+//       {filteredContacts.map(({ name, number, id }) => (
+//         <li key={id}>
+//           {name + ':' + number}
+//           {
+//             <button
+//               type="button"
+//               name="delete"
+//               // onClick={() => {
+//               //   dispatch(deleteContacts(id));
+//               // }}
+//             >
+//               delete
+//             </button>
+//           }
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };
