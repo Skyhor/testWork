@@ -1,8 +1,9 @@
 import { nanoid } from 'nanoid/non-secure';
 import { useDispatch } from 'react-redux';
-// import { addContacts } from '../../redux/constacts/constactsSlice';
+import { FormLabel, Input } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 import { addContacts } from 'redux/constacts/contacts-operation';
-import s from './Form.module.css';
 const NameId = nanoid();
 const NumberId = nanoid();
 
@@ -11,6 +12,7 @@ const Form = () => {
 
   const SubmitForm = e => {
     e.preventDefault();
+    console.log('qweq');
     const elem = e.target.elements;
     dispatch(
       addContacts({
@@ -23,34 +25,46 @@ const Form = () => {
     elem.phone.value = '';
   };
   return (
-    <div className={s.div}>
-      <form onSubmit={SubmitForm} className={s.form}>
-        <label htmlFor={NameId} className={s.label}>
-          Name
-        </label>
-        <input
-          className={s.label}
+    <Center>
+      <form onSubmit={SubmitForm}>
+        <Center>
+          <FormLabel>Name</FormLabel>
+        </Center>
+        <Input
           id={NameId}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
+          w={350}
+          ml={130}
         />
-        <label className={s.label}>Number</label>
-        <input
+        <Center>
+          <FormLabel>Number</FormLabel>
+        </Center>
+
+        <Input
           id={NumberId}
           type="tel"
           name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
+          w={350}
+          ml={130}
         />
-        <button type="submit" className={s.button} onSubmit={SubmitForm}>
+
+        <Button
+          colorScheme="teal"
+          variant="outline"
+          type="submit"
+          onSubmit={SubmitForm}
+        >
           add contact
-        </button>
+        </Button>
       </form>
-    </div>
+    </Center>
   );
 };
 
