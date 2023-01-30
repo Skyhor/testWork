@@ -20,21 +20,19 @@ export const App = () => {
   return (
     !isFetchingCurrentUser && (
       <div>
-        {/* <TestStyle /> */}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
-              path="home"
+              index
               element={
-                <PublicRoute restricted>
-                  {/* //restricted = {true}// */}
+                <PublicRoute>
                   <HomePage />
                 </PublicRoute>
               }
             />
 
             <Route
-              path="Contacts"
+              path="contacts"
               element={
                 <PrivateRoute>
                   <ContactPage />
