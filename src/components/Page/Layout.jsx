@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-import { HomePage } from './HomePage';
 import { Navigation } from 'components/Navigate/Navigate';
 import { AuthNavigation } from 'components/Navigate/AuthNavigation';
 import { UserAuthMenu } from 'components/auth/UserAuthMenu';
@@ -12,7 +10,6 @@ export const Layout = () => {
   return (
     <>
       <header>
-        {/* <HomePage /> */}
         {token ? <UserAuthMenu /> : <AuthNavigation />}
         <Navigation />
       </header>
