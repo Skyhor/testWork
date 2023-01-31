@@ -8,18 +8,7 @@ import {
   fetchContacts,
   deleteContacts,
 } from 'redux/constacts/contacts-operation';
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  TableContainer,
-  Button,
-} from '@chakra-ui/react';
+import { Table, Thead, Tr, Th, Button } from '@chakra-ui/react';
 import { Center } from '@chakra-ui/react';
 const ContactList = () => {
   const contacts = useSelector(selectContacts);

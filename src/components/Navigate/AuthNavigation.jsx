@@ -16,8 +16,6 @@ export const AuthNavigation = () => {
     fontWeight: 'bold',
     fontSize: '20px',
     px: 4,
-    // background:
-    //   'url(https://cdn.nur.kz/images/1120x630/243926ab7be28b87.webp?version=1) center/cover no-repeat',
   };
   return (
     <>
