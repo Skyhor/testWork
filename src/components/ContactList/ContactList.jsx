@@ -46,19 +46,6 @@ const ContactList = () => {
         </Table>
       </ul>
     </Center>
-
-    // <Center>
-
-    //     {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
-    //     <Thead>
-    //       <Tr>
-    //         <Th>To convert</Th>
-    //         <Th>into</Th>
-    //         <Th isNumeric>multiply by</Th>
-    //       </Tr>
-    //     </Thead>
-    //   </Table>
-    // </Center>
   );
 };
 

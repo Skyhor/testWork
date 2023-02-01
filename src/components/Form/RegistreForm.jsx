@@ -82,9 +82,11 @@ export const RegistreForm = () => {
                 variant="outline"
                 type="submit"
                 onSubmit={handleSubmit}
+                mr="100px"
               >
                 Register
               </Button>
+              <Link to="/login"> I hav accaunt</Link>
             </form>
           </CardBody>
         </Card>
@@ -92,45 +94,3 @@ export const RegistreForm = () => {
     </Box>
   );
 };
-//  <Box
-//    w="100%"
-//    h="200px"
-//    bgGradient="linear(to-r, gray.300, yellow.400, pink.200)"
-//  >
-//    <Center>
-//  <Card mt="100px">
-//        <Link to={refLocation.current ?? '/'}>Go back</Link>
-//  <CardBody>
-//          <form onSubmit={handleSubmit}>
-//            <FormLabel>
-//              Email:
-//              <Input
-//                type="email"
-//                name="email"
-//                value={email}
-//                onChange={handleChange}
-//              />
-//            </FormLabel>
-//            <FormLabel>
-//              Password:
-//              <Input
-//                type="password"
-//                name="password"
-//                value={password}
-//                onChange={handleChange}
-//              />
-//            </FormLabel>
-
-//            <Button
-//  colorScheme="teal"
-//  variant="outline"
-//  type="submit"
-//  onSubmit={handleSubmit}
-//            >
-//              login
-//            </Button>
-//          </form>
-//        </CardBody>
-//      </Card>
-//    </Center>
-//  </Box>;

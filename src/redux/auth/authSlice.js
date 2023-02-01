@@ -8,6 +8,7 @@ const initialState = {
   isLoading: false,
   error: null,
   isFetchingCurrentUser: false,
+  isLoggedIn: false,
 };
 const authSlice = createSlice({
   name: 'auth',
@@ -18,15 +19,18 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, { payload: { user, token } }) => {
         state.token = token;
         state.user = user;
+        state.isLoggedIn = true;
       })
 
       .addCase(login.fulfilled, (state, { payload: { user, token } }) => {
         state.token = token;
         state.user = user;
+        state.isLoggedIn = true;
       })
       .addCase(logout.fulfilled, state => {
         state.token = null;
         state.user = { name: '', email: '' };
+        state.isLoggedIn = false;
       })
       .addCase(fetchCurrentUser.pending, state => {
         state.isFetchingCurrentUser = true;
@@ -34,6 +38,7 @@ const authSlice = createSlice({
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isFetchingCurrentUser = false;
+        state.isLoggedIn = true;
       })
       .addCase(fetchCurrentUser.rejected, state => {
         state.isFetchingCurrentUser = false;
@@ -61,6 +66,7 @@ const authSlice = createSlice({
         isAnyOf(register.pending, login.pending, logout.pending),
         state => {
           state.isLoading = true;
+          state.isLoggedIn = false;
         }
       );
   },
