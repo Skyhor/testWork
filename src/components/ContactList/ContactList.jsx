@@ -26,11 +26,11 @@ const ContactList = () => {
       <ul>
         <Table variant="striped" colorScheme="teal">
           <Thead>
-            {filteredContacts.map(({ name, phone, id }) => (
+            {filteredContacts.map(({ name, number, id }) => (
               <Tr key={id}>
                 {/* {name + ':' + phone} */}
                 <Th>{name}:</Th>
-                <Th>{phone}</Th>
+                <Th>{number}</Th>
                 <Button
                   type="button"
                   name="delete"
